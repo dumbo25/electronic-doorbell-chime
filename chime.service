@@ -1,0 +1,16 @@
+[Unit]
+Description=run script to ring chime when Arlo dooorbell button is pressed
+After=meadiacenter.service
+
+[Service]
+# If User and Group are not specified as root, then it won't work
+# on OSMC change user 
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/bin/python /home/pi/chime.py
+#delete this line: on OSMC use Restart=on-failure instead of Restart=Always
+Restart=Always
+
+[Install]
+WantedBy=multi-user.target
