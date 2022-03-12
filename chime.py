@@ -23,7 +23,7 @@ import subprocess
 
 @bottle.get('/')
 def home():
-    cmd="aplay -Dhw:0 dingDongChime.wav"
+    cmd="sudo aplay -Dhw:0 /home/pi/dingDongChime.wav"
     subprocess.call(cmd, shell=True)
     return 'play chime'
 
